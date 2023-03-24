@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "type": "cargo",
+            "name": "Run",
+            "cargoArgs": ["run"],
+        },
+        {
+            "type": "cargo",
+            "name": "Cargo check",
+            "cargoArgs": ["clippy"],
+            "executableArgs": ["-D", "warnings"],
+        },
+        {
+            "type": "cargo",
+            "name": "Formating",
+            "cargoArgs": ["fmt", "--all"],
+            "executableArgs": ["--check"],
+        },
+        {
+            "type": "cargo",
+            "name": "test",
+            "cargoArgs": ["test"],
+        },
+        {
+            "type": "cargo",
+            "name": "check fmt test",
+            "cargoArgs": ["test"],
+            "dependsOn": ["Cargo check", "Formating"],
+        },
+    ]
+}
