@@ -15,7 +15,7 @@
             "type": "cargo",
             "name": "Formating",
             "cargoArgs": ["fmt", "--all"],
-            "executableArgs": ["--check"],
+            //"executableArgs": ["--check"],
         },
         {
             "type": "cargo",

@@ -1,6 +1,10 @@
 # Bastion Like v2
 
-An update of old [bastion-like](https://github.com/thmsgntz/bastion-like) from bevy 0.7 to 0.10.
+An update of old [bastion-like](https://github.com/thmsgntz/bastion-like) 0.10.
+
+# Game
+
+Diablo like gamestyle. Skelly rising from its womb. Fighting against villagies, soldiers.. to find the wizard who manipulated its soul.
 
 # Récupérer
 
@@ -10,13 +14,6 @@ An update of old [bastion-like](https://github.com/thmsgntz/bastion-like) from b
 - [ ] Skelly
 - [ ] Animations
 - [ ] Add physics
-
-## Migrations guides
-
-See: https://bevyengine.org/learn/migration-guides/
-
-- [ ] from 0.8 to 0.9
-- [ ] from 0.9 to 0.10
 
 ## Links
 
