@@ -1,4 +1,5 @@
 pub mod camera;
+pub mod animations;
 
 use bevy::prelude::*;
 
@@ -8,9 +9,6 @@ fn setup(
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
-    camera::setup_camera(&mut commands);
-    camera::setup_light(&mut commands);
-
     // plane
     commands.spawn(PbrBundle {
         mesh: meshes.add(shape::Plane::from_size(5.0).into()),
@@ -48,6 +46,8 @@ fn setup(
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
+        .add_plugin(camera::CameraPlugin)
+        .add_plugin(animations::AnimationsPlugin)
         .add_startup_system(setup)
         .run();
 }
