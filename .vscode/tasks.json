@@ -1,0 +1,66 @@
+{
+	// https://code.visualstudio.com/docs/editor/tasks
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cargo",
+			"command": "build",
+			"problemMatcher": [
+				"$rustc",
+				"$rust-panic"
+			],
+			"group": "build",
+			"label": "rust: cargo build"
+		},
+		{
+			"type": "cargo",
+			"command": "clippy",
+			"group": "test",
+			"label": "cargo clippy checks",
+			"args": [
+				"--",
+				"-D",
+				"warnings"
+			],
+			"dependsOn": ["rust: cargo fmt"]
+		},
+		{
+			"type": "cargo",
+			"command": "fmt",
+			"problemMatcher": [
+				"$rustc",
+				"$rust-panic"
+			],
+			"args": ["--all", "--"],
+			"label": "rust: cargo fmt"
+		},
+		{
+			"type": "cargo",
+			"command": "clean",
+			"problemMatcher": [
+				"$rustc",
+				"$rust-panic"
+			],
+			"label": "rust: cargo clean"
+		},
+		{
+			"type": "cargo",
+			"command": "test",
+			"problemMatcher": [
+				"$rustc",
+				"$rust-panic"
+			],
+			"group": "test",
+			"label": "rust: cargo test"
+		},
+		{
+			"type": "cargo",
+			"command": "run",
+			"problemMatcher": [
+				"$rustc",
+				"$rust-panic"
+			],
+			"label": "rust: cargo run"
+		}
+	]
+}
