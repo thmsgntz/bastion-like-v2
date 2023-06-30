@@ -8,7 +8,7 @@ impl Plugin for CameraPlugin {
     }
 }
 
-pub fn setup_camera(mut commands: Commands,) {
+pub fn setup_camera(mut commands: Commands) {
     // camera
     commands.spawn(Camera3dBundle {
         projection: OrthographicProjection {
@@ -22,11 +22,10 @@ pub fn setup_camera(mut commands: Commands,) {
     });
 }
 
-pub fn setup_light(mut commands: Commands,) {
+pub fn setup_light(mut commands: Commands) {
     // light
     commands.spawn(PointLightBundle {
         transform: Transform::from_xyz(3.0, 8.0, 5.0),
         ..default()
     });
-    
 }

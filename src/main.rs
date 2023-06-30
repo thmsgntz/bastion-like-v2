@@ -1,7 +1,13 @@
-pub mod camera;
 pub mod animations;
+pub mod camera;
+mod input;
 
 use bevy::prelude::*;
+use bevy::window::PresentMode;
+
+use bevy_inspector_egui::quick::WorldInspectorPlugin;
+
+use bevy::diagnostic::{FrameTimeDiagnosticsPlugin, LogDiagnosticsPlugin};
 
 /// set up a simple 3D scene
 fn setup(
@@ -45,8 +51,35 @@ fn setup(
 
 fn main() {
     App::new()
-        .add_plugins(DefaultPlugins)
+        /*window*/
+        .add_plugins(DefaultPlugins.set(WindowPlugin {
+            primary_window: Some(Window {
+                title: "I am a window!".into(),
+                resolution: (1200., 800.).into(),
+                present_mode: PresentMode::AutoVsync,
+                fit_canvas_to_parent: true,
+                prevent_default_event_handling: false,
+                ..default()
+            }),
+            ..default()
+        }))
+        /* FPS debug */
+        .add_plugin(LogDiagnosticsPlugin {
+            debug: false,
+            ..Default::default()
+        })
+        .add_plugin(WorldInspectorPlugin::new())
+        .add_plugin(FrameTimeDiagnosticsPlugin::default())
+        // Any plugin can register diagnostics
+        // Uncomment this to add an entity count diagnostics:
+        .add_plugin(bevy::diagnostic::EntityCountDiagnosticsPlugin::default())
+        // Uncomment this to add system info diagnostics:
+        .add_plugin(bevy::diagnostic::SystemInformationDiagnosticsPlugin::default())
+        /* Inputs */
+        .add_plugin(input::InputPlugin)
+        /* Camera */
         .add_plugin(camera::CameraPlugin)
+        /* Animations */
         .add_plugin(animations::AnimationsPlugin)
         .add_startup_system(setup)
         .run();
