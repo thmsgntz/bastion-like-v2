@@ -18,4 +18,7 @@ Diablo like gamestyle. Skelly rising from its womb. Fighting against villagies, 
 ## Links
 
 - Logic Pro: https://www.youtube.com/channel/UC7v3YEDa603x_84PgCPytzA
-  
+
+# Models
+
+- Ekko : https://skfb.ly/oHyVK	
